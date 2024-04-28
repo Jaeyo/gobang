@@ -27,7 +27,7 @@ const Board = () => {
 
   useEffect(() => {
     if (winner === 1 || winner === -1) {
-      window.alert(winner === 1 ? '黑棋获胜' : '白棋获胜')
+      window.alert(winner === 1 ? 'black wins' : 'white wins')
     }
   }, [winner]);
 

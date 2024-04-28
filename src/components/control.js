@@ -30,38 +30,38 @@ function Control() {
   return (
     <div className="controle">
       <div className="buttons">
-        <Button className="button" type="primary" onClick={start} disabled={loading || status !== STATUS.IDLE}>开始</Button>
-        <Button className="button" type="primary" onClick={undo} disabled={loading || status !== STATUS.GAMING || history.length === 0}>悔棋</Button>
-        <Button className="button" type="primary" onClick={end} disabled={loading || status !== STATUS.GAMING}>认输</Button>
+        <Button className="button" type="primary" onClick={start} disabled={loading || status !== STATUS.IDLE}>start</Button>
+        <Button className="button" type="primary" onClick={undo} disabled={loading || status !== STATUS.GAMING || history.length === 0}>go back</Button>
+        <Button className="button" type="primary" onClick={end} disabled={loading || status !== STATUS.GAMING}>lose</Button>
       </div>
       <div className="setting">
         <div className="setting-item">
-          电脑先手: <Switch defaultChecked={aiFirst} onChange={onFirstChange} disabled={loading} />
+          computer first: <Switch defaultChecked={aiFirst} onChange={onFirstChange} disabled={loading} />
         </div>
         <div className="setting-item">
-          难度:
+          difficulty:
           <Select
             defaultValue={String(depth)}
             style={{ width: 80 }}
             onChange={onDepthChange}
             disabled={loading}
             options={[
-              { value: '2', label: '弱智' },
-              { value: '4', label: '简单' },
-              { value: '6', label: '普通' },
-              { value: '8', label: '困难' },
+              { value: '2', label: 'easy' },
+              { value: '4', label: 'normal' },
+              { value: '6', label: 'difficult' },
+              { value: '8', label: 'hell' },
             ]}
           />
         </div>
         <div className="setting-item">
-          序号: <Switch defaultChecked={index} onChange={onIndexChange} />
+          show index: <Switch defaultChecked={index} onChange={onIndexChange} />
         </div>
       </div>
       <div className="status">
-        <div className="status-item">评分：{score}</div>
-        <div className="status-item">深度: {currentDepth}</div>
-        <div className="status-item">路径: {JSON.stringify(path)}</div>
-        <div className="status-item">历史: {JSON.stringify(history.map(h => [h.i, h.j]))}</div>
+        <div className="status-item">score：{score}</div>
+        <div className="status-item">current depth: {currentDepth}</div>
+        <div className="status-item">path: {JSON.stringify(path)}</div>
+        <div className="status-item">history: {JSON.stringify(history.map(h => [h.i, h.j]))}</div>
       </div>
     </div>
   );
